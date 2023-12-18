@@ -1,5 +1,5 @@
 {
-  "name": "knex-snowflake-dialect",
+  "name": "venice-knex-snowflake-dialect",
   "version": "1.0.3",
   "description": "knex.js dialect for the Snowflake data warehouse",
   "main": "lib/index.js",
@@ -20,18 +20,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deliverr/knex-snowflake-dialect.git"
+    "url": "https://github.com/paul-greco2/data-knex-snowflake-dialect"
   },
-  "author": "Emmet Murphy",
-  "keywords": [
-    "knex",
-    "snowflake"
-  ],
+  "author": "Venice",
+  "keywords": ["knex", "snowflake"],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/deliverr/knex-snowflake-dialect/issues"
+    "url": "https://github.com/paul-greco2/data-knex-snowflake-dialect/issues"
   },
-  "homepage": "https://github.com/deliverr/knex-snowflake-dialect#readme",
+  "homepage": "https://github.com/paul-greco2/data-knex-snowflake-dialect#readme",
   "jest": {
     "automock": false,
     "transform": {
@@ -39,17 +36,9 @@
     },
     "testEnvironment": "node",
     "testRegex": "(\\.(ispec|uspec))\\.(ts)$",
-    "roots": [
-      "<rootDir>/test"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.ts"
-    ]
+    "roots": ["<rootDir>/test"],
+    "moduleFileExtensions": ["ts", "js", "json"],
+    "collectCoverageFrom": ["src/**/*.ts"]
   },
   "dependencies": {
     "bluebird": "^3.7.2",
