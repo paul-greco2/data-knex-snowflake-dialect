@@ -2,7 +2,6 @@ import * as Bluebird from "bluebird";
 import * as Knex from "knex";
 import { defer, fromPairs, isArray, map, toPairs } from "lodash";
 
-import { QueryCompiler } from "./query/QueryCompiler";
 import { SchemaCompiler, TableCompiler } from "./schema";
 import * as ColumnBuilder from "knex/lib/schema/columnbuilder";
 import * as ColumnCompiler_MySQL from "knex/lib/dialects/mysql/schema/columncompiler";
@@ -48,10 +47,6 @@ export class SnowflakeDialect extends Knex.Client {
       this.trxClient.logger('Snowflake does not support savepoints.');
     };
     return transax;
-  }
-
-  queryCompiler(builder: any) {
-    return new QueryCompiler(this, builder);
   }
 
   columnBuilder(tableBuilder: any, type: any, args: any) {

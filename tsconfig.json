@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": ["es2017"],
+    "moduleResolution": "node",
+    "outDir": "lib",
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": false
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "test/**/*.uspec.ts",
+    "test/**/*.ispec.ts"
+  ],
+  "types": ["typePatches"]
+}
