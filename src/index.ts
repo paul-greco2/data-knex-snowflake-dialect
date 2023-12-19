@@ -1,18 +1,16 @@
 import * as Bluebird from "bluebird";
-import { Knex, knex } from "knex";
+import * as Knex from "knex";
 import { defer, fromPairs, isArray, map, toPairs } from "lodash";
+
 import { QueryCompiler } from "./query/QueryCompiler";
 import { SchemaCompiler, TableCompiler } from "./schema";
 import * as ColumnBuilder from "knex/lib/schema/columnbuilder";
-import * as ColumnCompiler_MySQL from "knex/lib/dialects/mysql/schema/mysql-columncompiler";
-import * as Transaction from "knex/lib/execution/transaction";
+import * as ColumnCompiler_MySQL from "knex/lib/dialects/mysql/schema/columncompiler";
+import * as Transaction from "knex/lib/transaction";
 import { promisify } from "util";
 
-export class SnowflakeDialect extends knex.Client {
-  constructor(config = {
-    dialect: "snowflake",
-    driverName: "snowflake-sdk",
-  } as any) {
+export class SnowflakeDialect extends Knex.Client {
+  constructor(config = {} as any) {
     if (config.connection) {
       if (config.connection.user && !config.connection.username) {
         config.connection.username = config.connection.user;
@@ -28,7 +26,10 @@ export class SnowflakeDialect extends knex.Client {
       }
     }
     super(config);
+    this.dialect = "snowflake";
+    this.driverName = "snowflake-sdk";
   }
+
 
   transaction(container: any, config: any, outerTx: any): Knex.Transaction {
     const transax = new Transaction(this, container, config, outerTx);
@@ -48,9 +49,9 @@ export class SnowflakeDialect extends knex.Client {
     };
     return transax;
   }
-  // @ts-ignore
-  queryCompiler(builder: any, formatter: any) {
-    return new QueryCompiler(this, builder, formatter);
+
+  queryCompiler(builder: any) {
+    return new QueryCompiler(this, builder);
   }
 
   columnBuilder(tableBuilder: any, type: any, args: any) {
@@ -227,7 +228,7 @@ export class SnowflakeDialect extends knex.Client {
       return result.map(lowercaseAttrs);
     }
     return result;
-  };
+  }
 
   customWrapIdentifier(value, origImpl, queryContext) {
     if (this.config.wrapIdentifier) {
