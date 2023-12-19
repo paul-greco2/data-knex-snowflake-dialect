@@ -1,6 +1,6 @@
 {
   "name": "venice-knex-snowflake-dialect",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "knex.js dialect for the Snowflake data warehouse",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,7 +22,10 @@
     "url": "https://github.com/paul-greco2/data-knex-snowflake-dialect"
   },
   "author": "Venice",
-  "keywords": ["knex", "snowflake"],
+  "keywords": [
+    "knex",
+    "snowflake"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/paul-greco2/data-knex-snowflake-dialect/issues"
@@ -35,9 +38,17 @@
     },
     "testEnvironment": "node",
     "testRegex": "(\\.(ispec|uspec))\\.(ts)$",
-    "roots": ["<rootDir>/test"],
-    "moduleFileExtensions": ["ts", "js", "json"],
-    "collectCoverageFrom": ["src/**/*.ts"]
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ]
   },
   "dependencies": {
     "bluebird": "^3.7.2",
@@ -57,7 +68,7 @@
     "chai": "4.2.0",
     "eslint": "^8.56.0",
     "jest": "25.1.0",
-    "knex": "^0.21.12",
+    "knex": "^0.21.21",
     "mocha": "7.1.1",
     "mysql": "2.18.1",
     "sinon": "9.0.1",
