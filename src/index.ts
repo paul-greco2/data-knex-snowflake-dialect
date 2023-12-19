@@ -9,6 +9,16 @@ import * as Transaction from "knex/lib/transaction";
 import { promisify } from "util";
 
 export class SnowflakeDialect extends Knex.Client {
+  // @ts-ignore
+  get dialect() {
+    return 'snowflake';
+  }
+
+  // @ts-ignore
+  get driverName() {
+    return 'snowflake-sdk';
+  }
+
   constructor(config = {} as any) {
     if (config.connection) {
       if (config.connection.user && !config.connection.username) {
@@ -25,8 +35,6 @@ export class SnowflakeDialect extends Knex.Client {
       }
     }
     super(config);
-    this.dialect = "snowflake";
-    this.driverName = "snowflake-sdk";
   }
 
 
